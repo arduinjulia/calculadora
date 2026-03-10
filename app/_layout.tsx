@@ -25,6 +25,11 @@ export default function RootLayout() {
     setResultado("")
   }
 
+  function calcularRaizQuadrada(numero: string){
+    const resultado = Math.sqrt(Number(numero))
+    setResultado(resultado.toString())
+  }
+
   return (
     <SafeAreaView style={styles.fundo} >
       <View style={styles.display}>
@@ -66,7 +71,7 @@ export default function RootLayout() {
         <TouchableOpacity style={styles.botaoNumero}></TouchableOpacity>
         <TouchableOpacity style={styles.botaoNumero} onPress={() => adicionarNumero("0")}>0</TouchableOpacity>
         <TouchableOpacity style={styles.botaoSimbolos} onPress={calcular}>=</TouchableOpacity>
-        <TouchableOpacity style={styles.botaoSimbolos} onPress={() => adicionarNumero("V")}>v</TouchableOpacity>
+        <TouchableOpacity style={styles.botaoSimbolos} onPress={() => calcularRaizQuadrada(conta)}>v</TouchableOpacity>
       </View>
 
     </SafeAreaView>
@@ -75,7 +80,7 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   fundo: {
-    backgroundColor: 'black'
+    backgroundColor: 'black', 
   },
 
   resultado: {
